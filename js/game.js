@@ -3,6 +3,8 @@
 // of those rules. It also maintains state through the State object.
 function Game(id, state, turn)
 {
+	var _BOARD_SIZE = 8;
+
     var _me = this;
     
     var _id;
@@ -41,9 +43,9 @@ function Game(id, state, turn)
         }
 
         // Make sure the board is initialized to match the given state.
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i < _BOARD_SIZE; i++)
         {
-            for (var j = 0; j < 8; j++)
+            for (var j = 0; j < _BOARD_SIZE; j++)
             {
                 if (_state.isBlack(i, j))
                 {
@@ -204,7 +206,7 @@ function Game(id, state, turn)
     this.getMoveAffectedPieceCoords = function(i, j)
     {
         var pieceCoords = new Array();
-        for (var direction = 0; direction < 8; direction++)
+        for (var direction = 0; direction < _BOARD_SIZE; direction++)
         {
             var coords = getAdjacentSquareCoords(i, j, direction);
 
@@ -217,7 +219,7 @@ function Game(id, state, turn)
     // Recursive helper function for the above function.
     var getMoveAffectedPieceCoordsInner = function(i, j, direction, pieceCoords)
     {
-        if (i >= 0 && i < 8 && j >= 0 && j < 8)
+        if (i >= 0 && i < _BOARD_SIZE && j >= 0 && j < _BOARD_SIZE)
         {
             if (_board.isEmptySquare(i, j))
             {
@@ -248,9 +250,9 @@ function Game(id, state, turn)
     this.getAllPossibleMoves = function(player)
     {
         var possibleMoves = new Array();
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i < _BOARD_SIZE; i++)
         {
-            for (var j = 0; j < 8; j++)
+            for (var j = 0; j < _BOARD_SIZE; j++)
             {
                 // Use any of our pieces as the starting point.
                 // // Then look if a valid 'connetion' can be made.
@@ -270,7 +272,7 @@ function Game(id, state, turn)
     var getPossibleMoves = function(i, j, player)
     {
         var possibleMoves = new Array();
-        for (var direction = 0; direction < 8; direction++)
+        for (var direction = 0; direction < _BOARD_SIZE; direction++)
         {
             var possibleMove = getPossibleMove(i, j, player, direction);
             
@@ -289,7 +291,7 @@ function Game(id, state, turn)
 
         // First make sure the first adjacent square contains a piece from the
         // other player.
-        if (coords.i >= 0 && coords.i < 8 && coords.j >= 0 && coords.j < 8)
+        if (coords.i >= 0 && coords.i < _BOARD_SIZE && coords.j >= 0 && coords.j < _BOARD_SIZE)
         {
             if (!_board.isEmptySquare(coords.i, coords.j) && _board.getPiece(coords.i, coords.j).getOwner() != player)
             {
@@ -312,7 +314,7 @@ function Game(id, state, turn)
     // of the opponent until we find an empty square.
     var getPossibleMoveInner = function(i, j, player, direction)
     {
-        if (i >= 0 && i < 8 && j >= 0 && j < 8)
+        if (i >= 0 && i < _BOARD_SIZE && j >= 0 && j < _BOARD_SIZE)
         {
             if (_board.isEmptySquare(i, j))
             {
