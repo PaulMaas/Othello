@@ -1,0 +1,144 @@
+body
+{
+    background-color: #ffffee;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1
+{
+    font-family: serif;
+    font-size: 4em;
+    color: darkslategrey;
+    margin-bottom: .3em;
+}
+
+h2
+{
+    font-size: 1.4em;
+    color: darkgrey;
+}
+
+div#notice
+{
+    position: fixed;
+    width: 100%;
+    top: 40%;
+    text-align: center;
+}
+
+div#notice p
+{
+    margin: auto;
+    width: 300px;
+    background: darkred;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+div#board
+{
+    margin: 0 auto;
+    width: 400px;
+    background-image: url(../img/square.png);
+    background-repeat: repeat;
+}
+
+div#info
+{
+    margin-top: 1em;
+}
+
+div#info div
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+    margin-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background-repeat: no-repeat;
+}
+
+div#blackPlayer
+{
+    color: white;
+    background-image: url(../img/black_piece.png);
+    opacity: 0.25;
+    filter:alpha(opacity = 25);
+}
+
+div#blackPlayer.machine
+{
+    background-image: url(../img/black_piece_machine.png);
+}
+
+div#whitePlayer
+{
+    background-image: url(../img/white_piece.png);
+    opacity: 0.35;
+    filter:alpha(opacity = 35);
+}
+
+div#whitePlayer.machine
+{
+    background-image: url(../img/white_piece_machine.png);
+}
+
+div#info div.active
+{
+    opacity: 1.0;
+    filter:alpha(opacity = 100);
+}
+
+div.square
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+div.highlighted.square
+{
+    opacity: 0.1;
+    filter:alpha(opacity = 10);
+    cursor: pointer;
+}
+
+div.black.highlighted.square
+{
+    background-image: url(../img/black_piece.png);
+}
+
+div.white.highlighted.square
+{
+    background-image: url(../img/white_piece.png);
+}
+
+div.piece
+{
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+div.black.piece
+{
+    background-image: url(../img/black_piece.png);
+}
+
+div.white.piece
+{
+    background-image: url(../img/white_piece.png);
+}
