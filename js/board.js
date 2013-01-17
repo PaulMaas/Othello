@@ -3,6 +3,8 @@
 // It also 'wires up' pieces, squares, the game, and the board.
 function Board(game)
 {
+	var _BOARD_SIZE = 8;
+
     var _game;
     var _squares;
     var _pieces;
@@ -12,19 +14,19 @@ function Board(game)
     {
         _game = game;
         _element = $('#board');
-        _squares = new Array(8);
-        _pieces = new Array(8);
+        _squares = new Array(_BOARD_SIZE);
+        _pieces = new Array(_BOARD_SIZE);
         
         // (Re)set the board element.
         _element.empty();
         
         // Add the 64 squares.
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i < _BOARD_SIZE; i++)
         {
-            _squares[i] = new Array(8);
-            _pieces[i] = new Array(8);
+            _squares[i] = new Array(_BOARD_SIZE);
+            _pieces[i] = new Array(_BOARD_SIZE);
 
-            for (var j = 0; j < 8; j++)
+            for (var j = 0; j < _BOARD_SIZE; j++)
             {
                 _squares[i][j] = new Square(i, j);
                 _element.append(_squares[i][j].getElement());
